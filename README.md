@@ -17,14 +17,7 @@ O modelo utiliza dados históricos da base pública **Vigitel** (Vigilância de 
 > 🔗 [Insira aqui o link do seu Google Drive/OneDrive onde salvou o vigitel.csv]
 
 
----
 
-## 📊 Base de Dados e Estratégia "Anticola" (Vazamento de Dados)
-
-[... Conteúdo atual que o Wallace escreveu sobre o tratamento do Vigitel e o expurgo das colunas de vazamento ...]
-
-
----
 
 
 ## 🔬 Experimentos Avançados e Cenários de Simulação
@@ -57,8 +50,10 @@ O ecossistema do projeto foi construído utilizando:
 * **Python 3.10+**
 * **Pandas & NumPy:** Manipulação e filtragem otimizada de dados.
 * **Scikit-Learn:** Engenharia de pipelines de pré-processamento de dados em Python, tuning de hiperparâmetros e modelagem preditiva.
-* **Matplotlib & Seaborn:** Geração automática de artefatos visuais, distribuições relevantes e curvas de avaliação.
+* **Matplotlib:** Geração automática de artefatos visuais, distribuições relevantes e curvas de avaliação.
 * **Joblib:** Serialização e salvamento físico dos modelos treinados para reuso em produção.
+
+> ⚙️ **Configuração de hardware:** no Bloco 2 do notebook existe a variável `N_JOBS_CONFIGURADO`, que controla quantos núcleos do processador são usados no tuning e na validação cruzada. Cada integrante do grupo deve ajustar esse valor de acordo com a própria máquina antes de rodar — evite usar `-1` (todos os núcleos), pois isso já causou falhas de recursos no Windows.
 
 ---
 
@@ -89,8 +84,10 @@ Se você deseja rodar o projeto em um ambiente completamente isolado e idêntico
 1. Certifique-se de ter o Docker instalado na máquina e que o arquivo `vigitel.csv` está na pasta do projeto.
 2. Construa a imagem Docker do projeto:
    docker build -t tech-challenge-fase1 .
-3. Execute o container para rodar o pipeline de Machine Learning:
+3. Execute o container para rodar o pipeline de Machine Learning (executa o `tech_challenge.ipynb` de ponta a ponta, na ordem dos Cenários A → B → C):
    docker run --name rodada-pipeline tech-challenge-fase1
+4. Para copiar os resultados gerados de dentro do container para sua máquina:
+   docker cp rodada-pipeline:/app/resultados_sem_vazamento ./resultados_sem_vazamento
 
 ---
 
