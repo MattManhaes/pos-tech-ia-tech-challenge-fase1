@@ -64,33 +64,19 @@ O ecossistema do projeto foi construído utilizando:
 
 ## 🚀 Como Executar o Projeto
 
-Existem duas formas homologadas para executar o pipeline preditivo deste projeto:
+Deploy do projeto:
 
-### Opção 1: Via Ambiente Virtual Isolado (Venv) - Recomendado para Jupyter
-Para abrir o arquivo `tech_challenge.ipynb` e inspecionar o código em formato de células funcionais, siga os passos abaixo no terminal da pasta do projeto:
+### Pré-requisitos:
+Ambiente Docker e git.
 
-1. Criar o ambiente virtual:
-   python -m venv venv
+1. Realizer o clone do projeto.
+   git clone https://github.com/MattManhaes/pos-tech-ia-tech-challenge-fase1.git
 
-2. Ativar o ambiente virtual:
-   * **Windows:**
-     .\venv\Scripts\activate
-   * **Mac/Linux:**
-     source venv/bin/activate
+2. No diretório pos-tech-ia-tech-challenge-fase1, fazer o build do projeto:
+   docker build -t api-hipertensao-fastapi:latest .
 
-3. Instalar as dependências contidas no arquivo de requerimentos:
-   pip install -r requirements.txt
-
-4. Abra o arquivo `tech_challenge.ipynb` no VS Code, selecione o Kernel apontando para a sua `(.venv)` instalada e execute o caderno.
-
-### Opção 2: Via Containerização (Dockerfile)
-Se você deseja rodar o projeto em um ambiente completamente isolado e idêntico ao de produção sem precisar configurar dependências locais:
-
-1. Certifique-se de ter o Docker instalado na máquina e que o arquivo `vigitel.csv` está na pasta do projeto.
-2. Construa a imagem Docker do projeto:
-   docker build -t tech-challenge-fase1 .
 3. Execute o container para rodar o pipeline de Machine Learning:
-   docker run --name rodada-pipeline tech-challenge-fase1
+   docker run -d -p 8000:8000 --name meu_modelo_fastapi api-hipertensao-fastapi:latest
 
 ---
 
