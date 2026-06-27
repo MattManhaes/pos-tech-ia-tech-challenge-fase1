@@ -70,13 +70,16 @@ Deploy do projeto:
 Ambiente Docker e git.
 
 1. Realizer o clone do projeto.
-   git clone https://github.com/MattManhaes/pos-tech-ia-tech-challenge-fase1.git
+
+         git clone https://github.com/MattManhaes/pos-tech-ia-tech-challenge-fase1.git
 
 2. No diretório pos-tech-ia-tech-challenge-fase1, fazer o build do projeto:
-   docker build -t api-hipertensao-fastapi:latest .
+   
+         docker build -t api-hipertensao-fastapi:latest .
 
 3. Execute o container para rodar o pipeline de Machine Learning:
-   docker run -d -p 8000:8000 --name meu_modelo_fastapi api-hipertensao-fastapi:latest
+   
+         docker run -d -p 8000:8000 --name meu_modelo_fastapi api-hipertensao-fastapi:latest
 
 ---
 
